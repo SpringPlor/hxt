@@ -1,0 +1,44 @@
+//
+//  TZJFSuccessHeaderView.m
+//  TaoZhuan
+//
+//  Created by 彭佳伟 on 2017/10/16.
+//  Copyright © 2017年 Jwpeng. All rights reserved.
+//
+
+#import "TZJFSuccessHeaderView.h"
+
+@implementation TZJFSuccessHeaderView
+
+- (instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        self.backgroundColor = rGB_Color(241, 242, 243);
+
+        self.tjLabel = [MYBaseView labelWithFrame:CGRectZero text:@"赚取积分" textColor:[UIColor colorWithHexString:TZ_BLACK alpha:1.0] textAlignment:NSTextAlignmentCenter andFont:kFont(16)];
+        [self addSubview:self.tjLabel];
+        [self.tjLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self);
+        }];
+        
+        self.leftImageView = [MYBaseView imageViewWithFrame:CGRectZero andImage:[UIImage imageNamed:@"lx"]];
+        [self addSubview:self.leftImageView];
+        [self.leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.tjLabel.mas_left).offset(-7);
+            make.centerY.equalTo(self.tjLabel);
+            make.width.height.mas_equalTo(5);
+        }];
+        
+        self.rightImageView = [MYBaseView imageViewWithFrame:CGRectZero andImage:[UIImage imageNamed:@"lx"]];
+        [self addSubview:self.rightImageView];
+        [self.rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.tjLabel.mas_right).offset(7);
+            make.centerY.equalTo(self.tjLabel);
+            make.width.height.mas_equalTo(5);
+        }];
+    }
+    return self;
+}
+
+@end
